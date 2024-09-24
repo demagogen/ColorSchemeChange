@@ -1,5 +1,5 @@
-#ifndef COLOR_SCHEME_H_
-#define COLOR_SCHEME_H_
+#ifndef COLOR_SCHEME_CHANGES_H_
+#define COLOR_SCHEME_CHANGER_H_
 
 /// @brief Перечислимый тип цветов
 /// @details Перечислимый тип цветов для функции graphic_printf().
