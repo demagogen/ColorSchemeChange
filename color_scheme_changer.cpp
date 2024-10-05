@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "color_scheme.h"
+#include "color_scheme_changer.h"
 
 void graphic_printf(COLOR color, STYLE style, const char *st, ...) {
     assert(st);
@@ -10,39 +10,42 @@ void graphic_printf(COLOR color, STYLE style, const char *st, ...) {
     va_list argument_pointer;
     char *pointer;
 
-    va_start     (argument_pointer, st);
-    change_color (color, style);
-    vprintf      (st, argument_pointer);
-    printf       ("\033[0m");
-    va_end       (argument_pointer);
+    va_start               (argument_pointer, st);
+    change_color_and_style (color, style);
+    vprintf                (st, argument_pointer);
+    printf                 ("\033[0m");
+    va_end                 (argument_pointer);
 }
 
-void change_color(COLOR color, STYLE style) {
-    printf("\033[");
+void change_color_and_style(COLOR color, STYLE style) {
+    printf("\033[%d;", style);
 
     switch(style) {
-        case RESET:         printf("0;");  break;
-        case BOLD:          printf("1;");  break;
-        case UNDERLINE:     printf("4;");  break;
-        case INVERSE:       printf("7;");  break;
-        case BOLD_OFF:      printf("21;"); break;
-        case UNDERLINE_OFF: printf("24;"); break;
-        case INVERSE_OFF:   printf("27;"); break;
+        case RESET:
+        case BOLD:
+        case UNDERLINE:
+        case INVERSE:
+        case BOLD_OFF:
+        case UNDERLINE_OFF:
+        case INVERSE_OFF:
+            break;
 
         default:
             assert(0 && "Invalid style");
             break;
     }
 
+    printf("%dm", color);
     switch(color) {
-        case BLACK:   printf("30m"); break;
-        case RED:     printf("31m"); break;
-        case GREEN:   printf("32m"); break;
-        case YELLOW:  printf("33m"); break;
-        case BLUE:    printf("34m"); break;
-        case MAGENTA: printf("35m"); break;
-        case CYAN:    printf("36m"); break;
-        case WHITE:   printf("37m"); break;
+        case BLACK:
+        case RED:
+        case GREEN:
+        case YELLOW:
+        case BLUE:
+        case MAGENTA:
+        case CYAN:
+        case WHITE:
+            break;
 
         default:
             assert(0 && "Invalid color change_color");
