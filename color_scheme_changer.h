@@ -5,7 +5,7 @@
 /// @details Перечислимый тип цветов для функции graphic_printf().
 
 enum COLOR {
-    BLACK   = 30, ///<black nigga
+    BLACK   = 30, ///<черный
     RED     = 31, ///<красный
     GREEN   = 32, ///<зеленый
     YELLOW  = 33, ///<желтый
