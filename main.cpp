@@ -1,17 +1,14 @@
-#include "color_scheme_changer.h"
+#include "FormatPrint.h"
 
-int main()
+int main ()
 {
-    graphic_printf(GREEN, BOLD, "Hello,\n that is the most of the most of the best                          \n" \
-                                "of the rest of the modern of the ancient of the patience to the patient    \n" \
-                                "of the sodom of the column of the soda of the cola                         \n" \
-                                "of the polo of the no no of the so calm of the one                         \n" \
-                                "of the ominous of the mysterious of the cautious                           \n" \
-                                "of the genius of the precious of the commas of the dots                    \n" \
-                                "... two thousands lines later ...                                          \n" \
-                                "of the GOIDAS of the ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ \n" \
-                                "color_scheme_changer library!!!!!!!                                        \n" \
-                                "GOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOL \n");
+    FormatPrintf  (DEFAULT_COLOR, DEFAULT_STYLE,
+                   "Hello!\nThis is my format printf mini library.\n"
+                   "I made it for Ded's MIPT course in first semester.\n"
+                   "For usage look at README\n");
+    FormatPrintf  (RED, BOLD, "Cool day, buddy. I fucked up with my IT course :-(\n");
+    FormatFprintf (stdout, GREEN, BOLD, "But I will not stop >:-)\n");
+    FormatPrintf  (WHITE, BOLD, "Renamed repo 04:05 p. m. 12.01.2025\n");
 
     return 0;
 }
